@@ -25,11 +25,29 @@
         <li class="nav-item">
           <a class="nav-link fw-semibold fs-5 {{ Request::routeIs('all.departments') ? 'text-success' : 'text-primary' }}" href="{{ route('all.departments') }}">Departments</a>
         </li>
-      </ul>
+      </ul> 
 
-
-      <!-- Right Menu: User Dropdown -->
       <ul class="navbar-nav ms-auto">
+      @if (Route::has('login'))
+         @auth
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-primary fs-5" href="#" id="userDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-user me-1"></i> Account
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            
+                <li>
+                  <a class="dropdown-item text-primary" href="{{ url('/dashboard') }}">Dashboard</a>
+                </li> 
+              
+          </ul>
+        </li>
+        @endauth
+      @endif
+      </ul> 
+      <!-- Right Menu: User Dropdown -->
+      <!-- <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-primary fs-5" href="#" id="userDropdown" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +72,7 @@
             @endif
           </ul>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </nav>

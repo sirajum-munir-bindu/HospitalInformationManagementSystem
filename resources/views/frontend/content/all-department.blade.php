@@ -33,15 +33,11 @@
     </div>
     @empty
         <div class="col-12 text-center">
-        <div class="alert alert-warning">No departments found.</div>
+         <div class="alert alert-warning">No departments found.</div>
         </div>
     @endforelse
  </div>
 
-
-  <div class="text-center mt-4">
-    <a href="./department-page.html" class="btn btn-primary fw-semibold px-4 py-2">View All Departments</a>
-  </div>
 </div>
 <!-- Department Section End -->
 

@@ -7,8 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
-
- 
+use App\Http\Controllers\DashboardController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -22,9 +21,11 @@ Route::post('/appointments', [AppointmentController::class, 'store'])->name('app
 
 
 
-Route::get('/dashboard', function () {
-    return view('backend/content/home/index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('backend/content/home/index');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('doctor', [DoctorController::class,'index'])->name('doctor');

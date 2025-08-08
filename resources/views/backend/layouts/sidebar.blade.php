@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">HIMS Admin</div>
+                <div class="sidebar-brand-text mx-3">{{ Auth::user()->name }}</div>
             </a>
 
             <!-- Divider -->
@@ -43,16 +43,17 @@
                     <i class="fa-solid fa-person"></i>
                     <span>Doctors</span>
                 </a>
-            </li>
+            </li>  
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
-                    <i class="fa-solid fa-bed"></i>
-                    <span>Patients</span>
-                </a>
-            </li>
-
-            
+                 <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-danger p-2 ml-3"> 
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                         <span>Logout</span>
+                    </button>
+                </form>
+            </li>  
 
         </ul>
         <!-- End of Sidebar -->
